@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Piment index{% endblock %}
+
+{% block body %}
+    <h1>Piment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Conditions_sol</th>
+                <th>Besoins_eau</th>
+                <th>Periode_semi</th>
+                <th>Periode_recolte</th>
+                <th>Techniques_entretien</th>
+                <th>Maladies_communes</th>
+                <th>Astuces</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for piment in piments %}
+            <tr>
+                <td>{{ piment.id }}</td>
+                <td>{{ piment.nom }}</td>
+                <td>{{ piment.description }}</td>
+                <td>{{ piment.conditionsSol }}</td>
+                <td>{{ piment.besoinsEau }}</td>
+                <td>{{ piment.periodeSemi }}</td>
+                <td>{{ piment.periodeRecolte }}</td>
+                <td>{{ piment.techniquesEntretien }}</td>
+                <td>{{ piment.maladiesCommunes }}</td>
+                <td>{{ piment.astuces }}</td>
+                <td>
+                    <a href="{{ path('app_piment_show', {'id': piment.id}) }}">show</a>
+                    <a href="{{ path('app_piment_edit', {'id': piment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piment_new') }}">Create new</a>
+{% endblock %}

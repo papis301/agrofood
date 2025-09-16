@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Admin{% endblock %}
+
+{% block body %}
+<h1>Inscription Admin</h1>
+
+{{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.plainPassword) }}
+    <button type="submit">S'inscrire</button>
+{{ form_end(registrationForm) }}
+{% endblock %}

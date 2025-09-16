@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion avec Google (Firebase)</title>
+  <script type="module" src="/main.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    #userInfo {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+    }
+    #extraInfo {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #eef;
+    }
+    input {
+      padding: 5px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connexion avec Google</h1>
+
+  <!-- Boutons -->
+  <button id="loginBtn">Se connecter avec Google</button>
+  <button id="logoutBtn" style="display:none;">Se déconnecter</button>
+
+  <!-- Infos utilisateur -->
+  <div id="userInfo"></div>
+
+  <!-- Formulaire numéro de téléphone -->
+  <div id="extraInfo" style="display:none;">
+    <label for="phone">Numéro de téléphone :</label>
+    <input type="text" id="phone" placeholder="Entrez votre numéro">
+    <button id="savePhoneBtn">Enregistrer</button>
+  </div>
+</body>
+</html>

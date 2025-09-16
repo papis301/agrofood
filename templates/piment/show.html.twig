@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Piment{% endblock %}
+
+{% block body %}
+    <h1>Piment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ piment.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ piment.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ piment.description }}</td>
+            </tr>
+            <tr>
+                <th>Conditions_sol</th>
+                <td>{{ piment.conditionsSol }}</td>
+            </tr>
+            <tr>
+                <th>Besoins_eau</th>
+                <td>{{ piment.besoinsEau }}</td>
+            </tr>
+            <tr>
+                <th>Periode_semi</th>
+                <td>{{ piment.periodeSemi }}</td>
+            </tr>
+            <tr>
+                <th>Periode_recolte</th>
+                <td>{{ piment.periodeRecolte }}</td>
+            </tr>
+            <tr>
+                <th>Techniques_entretien</th>
+                <td>{{ piment.techniquesEntretien }}</td>
+            </tr>
+            <tr>
+                <th>Maladies_communes</th>
+                <td>{{ piment.maladiesCommunes }}</td>
+            </tr>
+            <tr>
+                <th>Astuces</th>
+                <td>{{ piment.astuces }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_piment_index') }}">back to list</a>
+
+    <a href="{{ path('app_piment_edit', {'id': piment.id}) }}">edit</a>
+
+    {{ include('piment/_delete_form.html.twig') }}
+{% endblock %}

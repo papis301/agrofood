@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<h1>Connexion</h1>
+
+{% if error %}
+    <div style="color:red; margin-bottom:15px;">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+    </div>
+{% endif %}
+
+<form action="{{ path('app_login_check') }}" method="post" style="margin-bottom:20px;">
+    <div>
+        <label for="username">Email :</label><br>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus>
+    </div>
+
+    <div>
+        <label for="password">Mot de passe :</label><br>
+        <input type="password" id="password" name="_password" required>
+    </div>
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    <div style="margin-top:10px;">
+        <button type="submit" style="padding:10px 20px;">Se connecter</button>
+    </div>
+</form>
+
+<hr style="margin:20px 0;">
+
+<!-- Bouton Google -->
+<a href="{{ google_login_url }}"
+   style="
+       display:inline-block;
+       padding:10px 20px;
+       background:#4285F4;
+       color:white;
+       border-radius:5px;
+       text-decoration:none;
+       font-weight:bold;
+   ">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" style="width:20px; vertical-align:middle; margin-right:10px;">
+    Se connecter avec Google
+</a>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block body %}
+<h1>Bienvenue sur le Dashboard Admin</h1>
+
+<p>Email : {{ admin_email }}</p>
+
+<nav>
+    <a href="{{ path('admin_dashboard') }}">Accueil</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_culture_index') }}">Gérer Cultures</a>
+    {% endif %}
+    <ul>
+        <li><a href="{{ path('app_admin_register') }}">Ajouter un nouvel Admin</a></li>
+        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Actions rapides</h2>
+    <ul>
+        <li>Voir les utilisateurs</li>
+        <li>Gérer les contenus</li>
+        <li>Paramètres du site</li>
+    </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Culture{% endblock %}
+
+{% block body %}
+    <h1>Culture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ culture.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ culture.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ culture.description }}</td>
+            </tr>
+            <tr>
+                <th>ConditionsSol</th>
+                <td>{{ culture.conditionsSol }}</td>
+            </tr>
+            <tr>
+                <th>BesoinsEau</th>
+                <td>{{ culture.besoinsEau }}</td>
+            </tr>
+            <tr>
+                <th>PeriodeSemi</th>
+                <td>{{ culture.periodeSemi }}</td>
+            </tr>
+            <tr>
+                <th>PeriodeRecolte</th>
+                <td>{{ culture.periodeRecolte }}</td>
+            </tr>
+            <tr>
+                <th>TechniquesEntretien</th>
+                <td>{{ culture.techniquesEntretien }}</td>
+            </tr>
+            <tr>
+                <th>MaladiesCommunes</th>
+                <td>{{ culture.maladiesCommunes }}</td>
+            </tr>
+            <tr>
+                <th>Astuces</th>
+                <td>{{ culture.astuces }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ culture.createdAt ? culture.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_culture_index') }}">back to list</a>
+
+    <a href="{{ path('app_culture_edit', {'id': culture.id}) }}">edit</a>
+
+    {{ include('culture/_delete_form.html.twig') }}
+{% endblock %}
